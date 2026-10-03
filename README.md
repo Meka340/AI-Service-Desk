@@ -4,6 +4,10 @@ An AI-powered IT Service Desk assistant designed to help Tier 1 support analysts
 
 The application runs a local LLM using Ollama and stores analyzed tickets in a persistent SQLite database.
 
+## Application Preview
+
+![AI Service Desk Operations Platform](ai-service-desk.png)
+
 ## Features
 
 - AI-powered IT incident analysis

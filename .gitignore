@@ -1,0 +1,6 @@
+.venv/
+.claude/
+.agents/
+tickets.db
+__pycache__/
+*.pyc

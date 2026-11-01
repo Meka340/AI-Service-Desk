@@ -512,7 +512,6 @@ def main():
         st.write('2. Try the basic guidance. Choose I can’t do this step or Still need help to hand off to IT.')
         st.write('3. Generate the ticket, then select View this ticket in Service Desk.')
         st.write('4. Review the employee answers and attempted steps, try technician troubleshooting, and record a resolution or escalation.')
-        st.caption('No real password reset or device change is needed to test. The AI requires your configured Groq key. The non-AI ticket option works without it. Cloud demo data is temporary; this is not authenticated production support.')
     if st.session_state.rx_portal=='Employee':employee_portal()
     else:service_desk()
 

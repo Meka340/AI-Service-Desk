@@ -41,36 +41,6 @@ Use fictional details. Do not enter passwords, verification codes, or confidenti
 - GroqCloud API
 - Requests
 
-## Run Locally
-
-From the project folder, install the dependencies and start the current application:
-
-```powershell
-.\.venv\Scripts\python.exe -m pip install streamlit requests
-.\.venv\Scripts\python.exe -m streamlit run app_cloud.py
-```
-
-Configure your Groq API key in `.streamlit/secrets.toml`:
-
-```toml
-GROQ_API_KEY = "your-groq-api-key"
-```
-
-Keep this secrets file out of GitHub. The application uses `tickets.db` for demo ticket storage; do not commit ticket data.
-
-## Streamlit Community Cloud
-
-Deploy the repository's `main` branch with **`app_cloud.py`** as the main file path. Add `GROQ_API_KEY` in the app's Streamlit Secrets settings. Keep the Python dependencies in the repository's requirements file.
-
-The default model is `qwen/qwen3.8-27b`. Model availability depends on the Groq account; if necessary, update the model setting in the application to one available to your account.
-
-## Branding Files
-
-Keep these files at the repository root alongside this README:
-
-- `resolvexa_logo.png` — Resolvexa logo.
-- `resolvexa.png` — current application screenshot shown above.
-
 ## Project Status
 
 Resolvexa is actively being built and tested, drawing on practical Service Desk experience to improve ticket intake and give technicians a clearer starting point.

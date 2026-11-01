@@ -1,6 +1,10 @@
 # Resolvexa
 
-<img src="resolvexa_logo.png" alt="Resolvexa logo" width="260">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="resolvexa_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="resolvexa_logo.png">
+  <img src="resolvexa_logo.png" alt="Resolvexa logo" width="260">
+</picture>
 
 **Service Desk Expertise. AI Intelligence.**
 

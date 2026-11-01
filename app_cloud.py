@@ -503,9 +503,12 @@ def main():
         st.caption('Public demo: use fictional details. Switch portals in this same browser tab to follow your ticket. A new session starts a separate demo.')
     bg,panel,text,muted,line=('#101827','#1A273A','#E9EFF8','#B2C0D3','#35455B') if dark else ('#F2F5FA','#FFFFFF','#162A46','#5D6F86','#D8E1ED')
     st.markdown(f'''<style>.stApp{{background:{bg};color:{text};}}[data-testid="stHeader"]{{background:{bg};}}[data-testid="stSidebar"]{{background:{panel};border-right:1px solid {line};}}.block-container{{max-width:1450px;padding-top:2rem;}}h1,h2,h3,p,label,[data-testid="stMarkdownContainer"],[data-testid="stWidgetLabel"],[data-testid="stMetricValue"]{{color:{text};}}[data-testid="stCaptionContainer"]{{color:{muted};}}textarea,input,[data-baseweb="select"]>div{{background:{panel}!important;color:{text}!important;}}[role="listbox"],[role="option"]{{background:{panel};color:{text};}}.stButton button,.stFormSubmitButton button{{background:{panel};color:{text};border:1px solid {line};border-radius:8px;}}button[kind="primary"]{{background:#245BBC!important;color:white!important;border-color:#245BBC!important;}}button[kind="primary"] p{{color:white!important;}}[data-testid="stExpander"]{{background:{panel};border-color:{line};}}</style>''',unsafe_allow_html=True)
-    logo=Path(__file__).with_name('resolvexa_logo.png')
-    if logo.is_file():st.image(str(logo),width=240)
-    else:st.title('Resolvexa')
+    logo_name='resolvexa_dark.png' if dark else 'resolvexa_logo.png'
+    logo=Path(__file__).with_name(logo_name)
+    if logo.is_file():
+        st.image(str(logo),width=240)
+    else:
+        st.title('Resolvexa')
     st.caption('Service Desk Expertise. AI Intelligence.')
     with st.expander('How to test this demo'):
         st.write('1. Choose Try the Outlook example, or describe a fictional issue as an employee.')

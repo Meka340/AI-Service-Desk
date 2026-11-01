@@ -1,58 +1,51 @@
-# 🤖 AI Service Desk Operations Platform
+# Resolvexa linked demo
+Service Desk Expertise. AI Intelligence.
 
-An AI-powered IT Service Desk assistant designed to help Tier 1 support analysts analyze incidents, identify possible causes, recommend troubleshooting steps, and determine when escalation may be appropriate.
+This separate demo connects employee intake to a Service Desk view within one Streamlit app. It does not require changes to app.py, employee_intake.py, or technician_dashboard.py.
 
-The application runs a local LLM using Ollama and stores analyzed tickets in a persistent SQLite database.
+## Add to GitHub
+Extract this ZIP. Upload the complete `resolvexa_demo` folder to the existing AI-Service-Desk repository. Keep your existing files. The new folder contains:
+- resolvexa_demo.py: complete demo application
+- requirements.txt: dependencies
+- RELEASE_NOTES.md: release notes for this update
+- README.md: setup and test instructions
 
-## Application Preview
+Suggested commit message: Add linked Resolvexa employee and Service Desk demo
 
-![AI Service Desk Operations Platform](ai-service-desk.png)
+The release notes describe a prepared demo, not a verified deployment. Do not mark it released until the public test succeeds.
 
-## Features
+## Run locally
+From the repository folder:
 
-- AI-powered IT incident analysis
-- Automatic issue categorization
-- Priority assessment
-- Possible cause identification
-- Tier 1 troubleshooting recommendations
-- Resolution and escalation guidance
-- Persistent ticket history
-- Local LLM processing
+    .\.venv\Scripts\python.exe -m pip install -r resolvexa_demo/requirements.txt
+    .\.venv\Scripts\python.exe -m streamlit run resolvexa_demo/resolvexa_demo.py
 
-## Technologies
+## Deploy to Streamlit Community Cloud
+1. Open https://share.streamlit.io/ and sign in.
+2. Choose Create app, then the option for an existing GitHub app/repository.
+3. Choose your AI-Service-Desk repository and the branch containing this upload. Use the repository's actual default branch unless you intentionally uploaded elsewhere.
+4. Main file path: `resolvexa_demo/resolvexa_demo.py`
+5. In Advanced settings choose Python 3.12 and enter your existing Groq API key in Secrets:
 
-- Python
-- Streamlit
-- Ollama
-- Llama 3.2
-- SQLite
-- REST API
-- Git & GitHub
+    GROQ_API_KEY = "paste-your-existing-key-here"
 
-## How It Works
+Optional: set GROQ_MODEL to a model currently available to your Groq account. The existing project default is qwen/qwen3.8-27b. If the default is unavailable, configure an available model; the key remains in Streamlit Secrets.
 
-1. A Service Desk analyst enters an IT support issue.
-2. The application sends the ticket to a locally hosted Llama model through the Ollama API.
-3. The AI analyzes the incident and generates troubleshooting guidance.
-4. The application displays the analysis to the analyst.
-5. The ticket and AI response are stored in SQLite for ticket history.
+Optional: set PASSWORD_RESET_URL to an approved HTTPS reset page. Without that, the guide uses the employee's normal company sign-in page, or Microsoft's reset page when the employee explicitly selects a Microsoft work/school account.
 
-## Example Use Cases
+Never put a real API key or your actual secrets.toml into GitHub. Do not upload tickets.db or employee data.
 
-The application can assist with incidents involving:
+6. Choose an available app subdomain, then deploy. The final URL is only established by Streamlit after successful deployment.
+7. Enable public viewing for this demo if necessary, then open the final app URL in a private/incognito window and run the test below before adding it to LinkedIn.
 
-- VPN connectivity
-- Microsoft 365
-- Authentication and password issues
-- Network connectivity
-- Software problems
-- Hardware issues
-- General Tier 1 troubleshooting
+## How visitors should test
+1. Select Load the Outlook example.
+2. Select Show the first step.
+3. Use fictional observations. Select I can't do this step to simulate a handoff, or complete the steps and select Still need help. Do not change a real device to test.
+4. The app generates a ticket using Groq. If the key/model is unavailable, choose Create ticket without AI.
+5. After Ticket generated, select View my ticket in Service Desk.
+6. Open the ticket and review the same employee conversation, attempted steps, and observations.
+7. With Groq configured, start technician troubleshooting and record an outcome. Add an internal note, then document and confirm a resolution or prepare an escalation.
+8. Inspect Activity and Audit history. Activity entries expire individually after 24 hours; audit entries are retained within the temporary demo data.
 
-## Privacy
-
-The current version uses a locally hosted LLM through Ollama. Ticket content is processed locally rather than being sent to a third-party cloud AI API.
-
-## Project Status
-
-Active portfolio project focused on AI-enabled IT support and Service Desk operations.
+Each browser session has a different database. Switching roles in the same page preserves the ticket. A new browser tab/session may start a separate demo and will not necessarily show the first tab's tickets. That isolation is intentional for a public portfolio demo; it is not production authentication or durable cloud storage.
